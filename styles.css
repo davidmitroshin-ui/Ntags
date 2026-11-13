@@ -57,3 +57,11 @@
 .two-steps .step-primary:first-child p{color:#d8d9d4}
 .two-steps .step-icon.touch-photo-slot{align-self:flex-start;width:172px;height:126px;margin:5px 0 18px;background:#101112;border-color:rgba(255,255,255,.18);box-shadow:0 14px 26px rgba(0,0,0,.22)}
 @media(max-width:600px){.two-steps .step-icon.touch-photo-slot{align-self:flex-start;width:150px;height:110px;margin:5px 0 14px}}
+
+/* Keep the direct route legible at every width. */
+.direct-route{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.25fr);align-content:center;align-items:center;column-gap:clamp(8px,1.6vw,22px)}
+.direct-route strong{white-space:normal;overflow-wrap:normal;word-break:normal;min-width:0}
+.direct-route strong:last-child{max-width:100%;}
+.direct-route .route-arrow{flex:none;white-space:nowrap}
+@media(max-width:850px){.direct-route{grid-template-columns:minmax(0,1fr) auto minmax(0,1.15fr);column-gap:10px}.direct-route strong{font-size:clamp(16px,2.2vw,22px)}.direct-route .route-arrow{font-size:32px}}
+@media(max-width:600px){.direct-route{grid-template-columns:minmax(0,1fr) auto minmax(0,1.2fr);column-gap:8px}.direct-route strong{font-size:17px}.direct-route .route-arrow{font-size:30px}}
