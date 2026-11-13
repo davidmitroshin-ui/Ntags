@@ -65,3 +65,32 @@
 .direct-route .route-arrow{flex:none;white-space:nowrap}
 @media(max-width:850px){.direct-route{grid-template-columns:minmax(0,1fr) auto minmax(0,1.15fr);column-gap:10px}.direct-route strong{font-size:clamp(16px,2.2vw,22px)}.direct-route .route-arrow{font-size:32px}}
 @media(max-width:600px){.direct-route{grid-template-columns:minmax(0,1fr) auto minmax(0,1.2fr);column-gap:8px}.direct-route strong{font-size:17px}.direct-route .route-arrow{font-size:30px}}
+
+/* Treat narrow tablets and mobile browsers as a single-column experience. */
+@media (max-width:850px){
+  html,body{max-width:100%;overflow-x:hidden}
+  .wrap{width:calc(100% - 40px)}
+  .site-header{height:62px;padding-inline:20px}
+  .site-header nav{display:none}
+  .header-contact{font-size:11px}
+  .hero{display:flex;flex-direction:column;align-items:stretch;padding-top:44px;padding-bottom:61px;gap:34px}
+  .hero-copy{padding:0}
+  h1{font-size:clamp(46px,12vw,65px);line-height:1.01}
+  h1 span{display:block}
+  .hero-lead{font-size:14px;line-height:1.65;max-width:370px}
+  .hero-visual{width:100%;max-width:450px;align-self:center}
+  .how-section{padding-top:76px;padding-bottom:77px}
+  .section-heading{display:block}
+  .section-heading h2{font-size:clamp(42px,10vw,55px);margin-bottom:13px}
+  .steps.two-steps{grid-template-columns:1fr;margin-top:34px;gap:12px}
+  .two-steps .step-primary{min-height:290px;padding:23px}
+  .journey-compare{grid-template-columns:1fr;padding:20px;margin-top:12px;gap:18px}
+  .compare-steps{grid-template-columns:1fr 1fr;gap:12px}
+  .pricing-layout{display:block}
+  .pricing-heading{display:block}
+  .price-cards{grid-template-columns:1fr;gap:12px;margin-top:30px}
+  .price-card{aspect-ratio:1/1;padding:24px}
+  .order-section{display:block;padding-top:76px;padding-bottom:77px}
+  .form-grid{grid-template-columns:1fr}
+  .full{grid-column:1}
+}
