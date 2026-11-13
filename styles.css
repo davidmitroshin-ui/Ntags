@@ -55,8 +55,8 @@
 .two-steps .step-primary:first-child{background:var(--ink);color:#f7f7f4}
 .two-steps .step-primary:first-child .step-num{color:#aeb0a7}
 .two-steps .step-primary:first-child p{color:#d8d9d4}
-.two-steps .step-icon.touch-photo-slot{align-self:flex-start;width:172px;height:126px;margin:5px 0 18px;background:#101112;border-color:rgba(255,255,255,.18);box-shadow:0 14px 26px rgba(0,0,0,.22)}
-@media(max-width:600px){.two-steps .step-icon.touch-photo-slot{align-self:flex-start;width:150px;height:110px;margin:5px 0 14px}}
+.two-steps .step-icon.touch-photo-slot{align-self:flex-start;width:151px;height:110px;margin:5px 0 18px;background:transparent;border:0;border-radius:25px;box-shadow:none;transform:rotate(-5deg);overflow:hidden}
+@media(max-width:600px){.two-steps .step-icon.touch-photo-slot{width:132px;height:93px;margin:5px 0 14px;border-radius:22px}}
 
 /* Keep the direct route legible at every width. */
 .direct-route{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.25fr);align-content:center;align-items:center;column-gap:clamp(8px,1.6vw,22px)}
