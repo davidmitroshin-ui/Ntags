@@ -349,6 +349,36 @@ function addCurrentProduct() {
   if (counter) counter.textContent = String(cartQty())
 }
 
+// Client-side navigation keeps project-page routes inside /Ntags/ on GitHub Pages.
+// It also avoids full-page requests between sections of the storefront.
+document.addEventListener('click', (event) => {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+  const anchor = event.target instanceof Element ? event.target.closest('a[href]') : null
+  if (!anchor || anchor.hasAttribute('download') || anchor.target === '_blank') return
+
+  const rawHref = anchor.getAttribute('href')
+  if (!rawHref || rawHref.startsWith('#') || /^(?:mailto:|tel:|javascript:)/i.test(rawHref)) return
+
+  let destination
+  try { destination = new URL(rawHref, location.href) } catch { return }
+  if (destination.origin !== location.origin) return
+
+  // Prefix root-relative internal links when hosted as a GitHub Pages project site.
+  if (BASE_PATH && destination.pathname !== BASE_PATH && !destination.pathname.startsWith(BASE_PATH + '/')) {
+    destination.pathname = BASE_PATH + (destination.pathname.startsWith('/') ? '' : '/') + destination.pathname
+  }
+
+  if (BASE_PATH && destination.pathname !== BASE_PATH && !destination.pathname.startsWith(BASE_PATH + '/')) return
+  event.preventDefault()
+  history.pushState({}, '', destination.pathname + destination.search + destination.hash)
+  render()
+  window.scrollTo(0, 0)
+})
+
+window.addEventListener('popstate', () => {
+  render()
+  window.scrollTo(0, 0)
+})
 root.addEventListener('click', (event) => {
   const actionButton = event.target.closest('[data-action]')
   if (!actionButton) return
